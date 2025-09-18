@@ -89,40 +89,6 @@ class HeadLayout extends React.Component {
     this.handleLogin();
   }
 
-  getActionButtonByOrgType() {
-    const { anchorEl } = this.state;
-    let actionButton = null;
-    const currOrgType = JsUtil.getAppItem('currOrgType');
-    if (!currOrgType || currOrgType == 13) {
-      actionButton = (
-          <Fragment>
-            <LinkButton onClick={this.handleClickJoin}>
-              加盟入驻
-            </LinkButton>
-            <Menu open={Boolean(anchorEl)} onClose={() => this.setState({ anchorEl: null })} anchorEl={anchorEl}>
-              <MenuItem onClick={this.handleToJoin('supplier')}>供应商加盟</MenuItem>
-              <MenuItem onClick={this.handleToJoin('opCenter')}>运营中心加盟</MenuItem>
-              <MenuItem onClick={this.handleToJoin('serviceStation')}>服务站加盟</MenuItem>
-            </Menu>
-          </Fragment>
-      );
-    } else {
-      actionButton = (
-        <LinkButton onClick={this.handleToOrgBackEnd}>
-            商家后台
-        </LinkButton>
-      );
-    }
-
-    return actionButton;
-  }
-
-  handleClickJoin = (e) => {
-    this.setState({
-      anchorEl: e.target
-    });
-  }
-
   render() {
     const { children } = this.props;
     const userId = JsUtil.getAppItem('currUserId');
@@ -130,10 +96,10 @@ class HeadLayout extends React.Component {
     const loginItem = (
       <Fragment>
         <ItemGrid>
-          <LinkButton onClick={this.handleLogin}>请登录</LinkButton>
+          <LinkButton onClick={this.handleLogin}>Please Login</LinkButton>
         </ItemGrid>
         <ItemGrid>
-          <LinkButton onClick={this.handleRegister}>免费注册</LinkButton>
+          <LinkButton onClick={this.handleRegister}>Register</LinkButton>
         </ItemGrid>
       </Fragment>
     );
@@ -144,7 +110,7 @@ class HeadLayout extends React.Component {
           <LinkButton>{JsUtil.getAppItem('currUserName')}</LinkButton>
         </ItemGrid>
         <ItemGrid>
-          <LinkButton onClick={this.handleExit}>退出</LinkButton>
+          <LinkButton onClick={this.handleExit}>Exit</LinkButton>
         </ItemGrid>
       </Fragment>
     );
@@ -157,36 +123,12 @@ class HeadLayout extends React.Component {
             <HeaderGrid1>
               <ItemGrid>
                 <ExtraText style={{marginTop: '10'}}>
-              欢迎来到本商城！
+              Welcome！
                 </ExtraText>
               </ItemGrid>
               {userId ? welcomeItem : loginItem}
             </HeaderGrid1>
 
-            <HeaderGrid1>
-              <ItemGrid>
-                <LinkButton onClick={this.goToGlobalHome}>全国首页</LinkButton>
-              </ItemGrid>
-              <ItemGrid>
-              <LinkButton onClick={this.goToRegionHome}>地方首页</LinkButton>
-              </ItemGrid>
-              <ItemGrid>
-              <LinkButton onClick={this.handleTocart}>购物车
-              <TopBadge showZero content={this.state.carNum}>
-              &nbsp;
-              </TopBadge>
-              </LinkButton>
-                
-              </ItemGrid>
-              <ItemGrid>
-                <LinkButton onClick={this.handleToMemberBackEnd}>
-                会员后台
-                </LinkButton>
-              </ItemGrid>
-              <ItemGrid>
-                {actionButton}
-              </ItemGrid>
-            </HeaderGrid1>
           </HeadGrid>
           <br />
           <ContentGrid xs={12}>{children}</ContentGrid>
@@ -196,7 +138,6 @@ class HeadLayout extends React.Component {
 }
 
 HeadLayout.propTypes = {
-  //children: PropTypes.object.isRequired
 }
 
 export default withRouter(HeadLayout);
