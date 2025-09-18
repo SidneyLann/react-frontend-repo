@@ -7,21 +7,21 @@ JsUtil.prod_mode = prod_mode;
 
 const devEnv = () => {
 	WEBSITE_SCHEM = 'https://';
-	WEBSITE_HOST = 'd08.pc8g.com';
+	WEBSITE_HOST = 'd08.sh1.koreacentral.cloudapp.azure.com.com';
 	API_SCHEM = 'https://';
 	BE_PORT = 443;
-	API_HOST_ONLINE = 'www.pc8g.com';
-	API_HOST_OFFLINE = 'of.pc8g.com';
+	API_HOST_ONLINE = 'www.sh1.koreacentral.cloudapp.azure.com.com';
+	API_HOST_OFFLINE = 'of.sh1.koreacentral.cloudapp.azure.com.com';
 	ONLINE_PORT = ':443';
 	OFFLINE_PORT = ':6886';
 	IMAGE_PREFIX = '/rs/pub/media/image/src/search?path=';
 }
 
 let WEBSITE_SCHEM = 'https://';
-let WEBSITE_HOST = 'www.pc8g.com';
+let WEBSITE_HOST = 'www.sh1.koreacentral.cloudapp.azure.com.com';
 let API_SCHEM = 'https://';
-let API_HOST_ONLINE = 'www.pc8g.com';
-let API_HOST_OFFLINE = 'of.pc8g.com';
+let API_HOST_ONLINE = 'www.sh1.koreacentral.cloudapp.azure.com.com';
+let API_HOST_OFFLINE = 'of.sh1.koreacentral.cloudapp.azure.com.com';
 let ONLINE_PORT = ':443';
 let OFFLINE_PORT = ':6886';
 let BE_PORT = 443;
