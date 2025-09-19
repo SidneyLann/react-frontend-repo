@@ -8,7 +8,6 @@ import ContainerGrid from "jsx/control/grid/ContainerGrid";
 import ItemGrid from "jsx/control/grid/ItemGrid";
 import CenterFormPaper from "jsx/control/paper/CenterFormPaper";
 import InlineText from "jsx/control/typography/InlineText";
-import ImagePaper from "jsx/control/paper/ImagePaper";
 import LoginInput from "jsx/control/textfield/LoginInput";
 import LgTitle from "jsx/control/text/LgTitle";
 import PasswordInput from "jsx/control/textfield/PasswordInput";
@@ -99,7 +98,6 @@ class Login extends React.Component {
 
     return (
       <HeadLayout>
-        <ImagePaper>
           <CenterFormPaper>
             <ContainerGrid>
               <LgTitle>Login</LgTitle>
@@ -134,7 +132,6 @@ class Login extends React.Component {
             <br />
             <br /><br /><br />
           </CenterFormPaper>
-        </ImagePaper>
       </HeadLayout>
     );
   }

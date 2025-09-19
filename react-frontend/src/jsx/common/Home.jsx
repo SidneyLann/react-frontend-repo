@@ -6,6 +6,7 @@ import cnst from 'jsx/common/Constant';
 import HeadLayout from 'jsx/layout/HeadLayout';
 import FootLayout from 'jsx/layout/FootLayout';
 import RightBottomNavBar from 'jsx/component/RightBottomNavBar';
+import ImagePaper from "jsx/control/paper/ImagePaper";
 
 class Home extends React.Component {
 	state = {
@@ -112,6 +113,8 @@ class Home extends React.Component {
 	render() {
 		return (
 			<HeadLayout currOperatorId={this.state.currOperatorId} currMallType={this.state.currMallType} currRegionName={this.state.currRegionName}>
+			<ImagePaper>
+			</ImagePaper>
 			</HeadLayout>
 		);
 	}
