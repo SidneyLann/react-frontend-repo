@@ -1,4 +1,4 @@
-cd /d D:\DEV\git\repo_eb\pcng-client-frontend-pc\pcng-mall-client-web-pc
+cd /d D:\DEV\git\repo_js\react-frontend\react-frontend
 
 gulp dev
 

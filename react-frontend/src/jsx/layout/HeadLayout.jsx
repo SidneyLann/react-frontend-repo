@@ -25,23 +25,6 @@ class HeadLayout extends React.Component {
   }
 
   componentDidMount() {
-    const memberId = JsUtil.getAppItem('currUserId');
-    console.log(`HeadLayout currUserId=${memberId}`);
-    if (!memberId) return;
-
-    const succ = result => {
-      const { body } = result;
-      console.log(`carnum:${JSON.stringify(body)}`);
-      if (!isNaN(body)) {
-        this.setState({
-          carNum: body
-        });
-      }
-    }
-
-    const err = result => { }
-
-    JsUtil.asyncHttpGet(this, `/cm/pub/cart/count/search?memberId=${memberId}`, succ, err);
   }
 
   handleLogin = () => {
@@ -60,29 +43,6 @@ class HeadLayout extends React.Component {
 	JsUtil.goToRegionHome();
   }
 
-  handleToMemberBackEnd = () => {
-    if(JsUtil.checkLogin(null, '/be/mb'))
-    window.open(`//${document.domain}:${JsUtil.BE_PORT}/be/mb`, '_blank');
-  }
-
-  handleToOrgBackEnd = () => {
-    if(JsUtil.checkLogin(null, 'be'))
-    window.open(`//${document.domain}:${JsUtil.BE_PORT}/be`, '_blank');
-  }
-
-  handleToOrgCenter = () => {
-
-  }
-
-  handleToJoin = path => () => {
-    this.setState({ anchorEl: null });
-    JsUtil.navigate(this, `/fe/page/join/${path}`);
-  }
-
-  handleTocart = () => {
-    JsUtil.navigate(this, '/fe/page/shopping_cart');
-  }
-
   handleExit = () => {
     JsUtil.setAppItem('currUserId', null);
     JsUtil.setAppItem('currOrgType', null);
@@ -98,9 +58,6 @@ class HeadLayout extends React.Component {
         <ItemGrid>
           <LinkButton onClick={this.handleLogin}>Please Login</LinkButton>
         </ItemGrid>
-        <ItemGrid>
-          <LinkButton onClick={this.handleRegister}>Register</LinkButton>
-        </ItemGrid>
       </Fragment>
     );
 
@@ -115,10 +72,8 @@ class HeadLayout extends React.Component {
       </Fragment>
     );
 
-    const actionButton = this.getActionButtonByOrgType();
-
     return (
-      <FootLayout>
+	<FootLayout>
           <HeadGrid container>
             <HeaderGrid1>
               <ItemGrid>
@@ -130,9 +85,9 @@ class HeadLayout extends React.Component {
             </HeaderGrid1>
 
           </HeadGrid>
-          <br />
-          <ContentGrid xs={12}>{children}</ContentGrid>
-      </FootLayout>
+			    <br />
+			    <ContentGrid xs={12}>{children}</ContentGrid>
+			</FootLayout>
     );
   }
 }

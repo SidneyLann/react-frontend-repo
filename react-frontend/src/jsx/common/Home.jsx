@@ -3,7 +3,7 @@ import withRouter from "jsx/component/WithRouter";
 import { Link } from 'react-router-dom';
 import JsUtil from 'jsx/common/JsUtil';
 import cnst from 'jsx/common/Constant';
-import FloorLayout from 'jsx/layout/FloorLayout';
+import HeadLayout from 'jsx/layout/HeadLayout';
 import FootLayout from 'jsx/layout/FootLayout';
 import RightBottomNavBar from 'jsx/component/RightBottomNavBar';
 
@@ -111,9 +111,8 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<FloorLayout currOperatorId={this.state.currOperatorId} currMallType={this.state.currMallType} currRegionName={this.state.currRegionName}>
-				<RightBottomNavBar carNum={this.state.carNum} />
-			</FloorLayout>
+			<HeadLayout currOperatorId={this.state.currOperatorId} currMallType={this.state.currMallType} currRegionName={this.state.currRegionName}>
+			</HeadLayout>
 		);
 	}
 }

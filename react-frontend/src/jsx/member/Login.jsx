@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
 import JsUtil from 'jsx/common/JsUtil';
 import cnst from 'jsx/common/Constant';
-import LogoHeadLayout from "jsx/layout/LogoHeadLayout";
+import HeadLayout from "jsx/layout/HeadLayout";
 import ContainerGrid from "jsx/control/grid/ContainerGrid";
 import ItemGrid from "jsx/control/grid/ItemGrid";
 import CenterFormPaper from "jsx/control/paper/CenterFormPaper";
@@ -23,21 +23,26 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone: "",
+      loginName: "",
       password: "",
       path: ""
     }
   }
 
   handleLogin() {
-    if (!this.state.password) {
-      alert("请输入密码！");
+    if (!this.state.loginName) {
+      alert("Please input Login Name");
       return;
     }
+	
+	  if (!this.state.password) {
+	    alert("Please input password");
+	    return;
+	  }
 
-    const params = "loginName=" + this.state.phone + "&password=" + this.state.password + "&clientVersion=1.0.0";
+    const params = "loginName=" + this.state.loginName + "&password=" + this.state.password + "&clientVersion=1.0.0";
     let formBody = [];
-    formBody.push("loginName=" + this.state.phone);
+    formBody.push("loginName=" + this.state.loginName);
     formBody.push("password=" + this.state.password);
     formBody.push("clientVersion=" + '1.0.0');
     formBody = formBody.join("&");
@@ -80,48 +85,10 @@ class Login extends React.Component {
     }
 
     const err = result => {
-      alert("请求失败" + result);
+      alert("operation fail: " + result);
     }
 
     JsUtil.asyncHttpPost(this, "/sec/login?"+params, null, succ, err, "application/x-www-form-urlencoded");
-  }
-
-  loadCommodityFollow = (memberId) => {
-    const uri = '/cm/pub/member/search';
-    const param = "memberId=" + memberId;
-
-    const succ = result => {
-      if (result.code == cnst.CODE_COMM_0_SUCCESS) {
-        JsUtil.setAppItem("followSpecIds", result.body);
-      } else {
-        alert(result.message);
-      }
-    }
-
-    const err = result => {
-
-    }
-
-    JsUtil.asyncHttpPost(this, uri, param, succ, err, "application/x-www-form-urlencoded");
-  }
-
-  loadSupplierFollow = (memberId) => {
-    const uri = '/sp/pub/member/search';
-    const param = "memberId=" + memberId;
-
-    const succ = result => {
-      if (result.code == cnst.CODE_COMM_0_SUCCESS) {
-        JsUtil.setAppItem("followSupplierIds", result.body);
-      } else {
-        alert(result.message);
-      }
-    }
-
-    const err = result => {
-
-    }
-
-    JsUtil.asyncHttpPost(this, uri, param, succ, err, "application/x-www-form-urlencoded");
   }
 
   render() {
@@ -131,21 +98,20 @@ class Login extends React.Component {
     }
 
     return (
-      <LogoHeadLayout>
+      <HeadLayout>
         <ImagePaper>
           <CenterFormPaper>
             <ContainerGrid>
-              <LgTitle>账户登录</LgTitle>
+              <LgTitle>Login</LgTitle>
             </ContainerGrid>
             <br />
             <ContainerGrid>
               <ItemGrid>
                 <LoginInput
-                  id="phone"
-                  label='手机号'
-                  onChange={e => this.setState({ phone: e.target.value })}
+                  id="loginName"
+                  label='loginName'
+                  onChange={e => this.setState({ loginName: e.target.value })}
                   fullWidth
-                  required
                 />
               </ItemGrid>
             </ContainerGrid>
@@ -153,41 +119,23 @@ class Login extends React.Component {
               <ItemGrid>
                 <PasswordInput
                   id="password"
-                  label='密码'
+                  label='password'
                   onChange={e => this.setState({ password: e.target.value })}
                   fullWidth
-                  required
                 />
               </ItemGrid>
-            </ContainerGrid>
-            <ContainerGrid>
-              <ForgetText component={Link} to="/fe/page/findPassword">
-                忘记密码？
-          </ForgetText>
-              <ForgetText component={Link} to="/fe/page/MessageLogin">
-                短信登录
-          </ForgetText>
             </ContainerGrid>
             <br />
             <CenterGrid>
               <RegiesterButton onClick={this.handleLogin.bind(this)}>
-                登录
+                Login
           </RegiesterButton>
             </CenterGrid>
             <br />
             <br /><br /><br />
-            <hr />
-            <TwoSidesGrid>
-              <FloatLeftText component={Link} to="/fe/page/register">
-                注册
-          </FloatLeftText>
-              <FloatRightText component={Link} to="/">
-                返回商城
-          </FloatRightText>
-            </TwoSidesGrid>
           </CenterFormPaper>
         </ImagePaper>
-      </LogoHeadLayout>
+      </HeadLayout>
     );
   }
 }
