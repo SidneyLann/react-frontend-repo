@@ -10,20 +10,20 @@ const devEnv = () => {
 	WEBSITE_HOST = 'sh1.koreacentral.cloudapp.azure.com.com';
 	API_SCHEM = 'https://';
 	BE_PORT = 443;
-	API_HOST_ONLINE = 'sh1.koreacentral.cloudapp.azure.com.com';
-	API_HOST_OFFLINE = 'sh1.koreacentral.cloudapp.azure.com.com';
+	API_HOST_ONLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
+	API_HOST_OFFLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
 	ONLINE_PORT = ':443';
-	OFFLINE_PORT = ':6886';
+	OFFLINE_PORT = ':443';
 	IMAGE_PREFIX = '/rs/pub/media/image/src/search?path=';
 }
 
 let WEBSITE_SCHEM = 'https://';
-let WEBSITE_HOST = 'sh1.koreacentral.cloudapp.azure.com.com';
+let WEBSITE_HOST = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
 let API_SCHEM = 'https://';
-let API_HOST_ONLINE = 'sh1.koreacentral.cloudapp.azure.com.com';
-let API_HOST_OFFLINE = 'sh1.koreacentral.cloudapp.azure.com.com';
+let API_HOST_ONLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
+let API_HOST_OFFLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
 let ONLINE_PORT = ':443';
-let OFFLINE_PORT = ':6886';
+let OFFLINE_PORT = ':443';
 let BE_PORT = 443;
 let IMAGE_PREFIX = '/rs/pub/media/image/src/search?path=';
 //const IMAGE_PREFIX = '/pcng-biz-member/pcng-biz-member/rs/pub/media/image/src/search?path=';
