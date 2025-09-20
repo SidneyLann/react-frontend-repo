@@ -3,3 +3,4 @@ D:\DEV\nodejs\rimraf prd
 gulp prd
 
 cmd /k
+
