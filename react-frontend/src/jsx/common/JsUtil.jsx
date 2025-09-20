@@ -6,25 +6,25 @@ const prod_mode = 1;
 JsUtil.prod_mode = prod_mode;
 
 const devEnv = () => {
-	WEBSITE_SCHEM = 'https://';
-	WEBSITE_HOST = 'sh1.koreacentral.cloudapp.azure.com.com';
-	API_SCHEM = 'https://';
-	BE_PORT = 443;
+	WEBSITE_SCHEM = 'http://';
+	WEBSITE_HOST = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
+	API_SCHEM = 'http://';
+	BE_PORT = 8443;
 	API_HOST_ONLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
 	API_HOST_OFFLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
-	ONLINE_PORT = ':443';
-	OFFLINE_PORT = ':443';
+	ONLINE_PORT = ':8443';
+	OFFLINE_PORT = ':8443';
 	IMAGE_PREFIX = '/rs/pub/media/image/src/search?path=';
 }
 
-let WEBSITE_SCHEM = 'https://';
+let WEBSITE_SCHEM = 'http://';
 let WEBSITE_HOST = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
-let API_SCHEM = 'https://';
+let API_SCHEM = 'http://';
 let API_HOST_ONLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
 let API_HOST_OFFLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
-let ONLINE_PORT = ':443';
-let OFFLINE_PORT = ':443';
-let BE_PORT = 443;
+let ONLINE_PORT = ':8443';
+let OFFLINE_PORT = ':8443';
+let BE_PORT = 8443;
 let IMAGE_PREFIX = '/rs/pub/media/image/src/search?path=';
 //const IMAGE_PREFIX = '/pcng-biz-member/pcng-biz-member/rs/pub/media/image/src/search?path=';
 prod_mode != 1 ? devEnv() : '';

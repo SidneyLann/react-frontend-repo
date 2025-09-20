@@ -7,7 +7,7 @@ const theme = require('./app.theme');
 
 //const JsUtil = require('../jsx/common/JsUtil.jsx');
 //const publicPath = JsUtil.prod_mode == 1? 'https://www.pc8g.com/': 'https://d18.pc8g.com/';
-const publicPath = 'https://www.pc8g.com/';
+const publicPath = 'http://ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com:8443/';
 
 const webpackConfig = {
   mode:  'production',
