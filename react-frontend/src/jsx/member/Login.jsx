@@ -39,11 +39,12 @@ class Login extends React.Component {
 	    return;
 	  }
 
-    const params = "loginName=" + this.state.loginName + "&password=" + this.state.password + "&clientVersion=1.0.0";
+    const params = "loginName=" + this.state.loginName + "&password=" + this.state.password + "&weId=0" + "&clientVersion=1.0.0";
     let formBody = [];
     formBody.push("loginName=" + this.state.loginName);
     formBody.push("password=" + this.state.password);
-    formBody.push("clientVersion=" + '1.0.0');
+    formBody.push("weId=" + '0');
+	formBody.push("clientVersion=" + '1.0.0');
     formBody = formBody.join("&");
     
     const succ = result => {
@@ -64,19 +65,6 @@ class Login extends React.Component {
         this.loadCommodityFollow(entity.id);
         this.loadSupplierFollow(entity.id);
 
-		const succ2 = result2 => {
-		if (JsUtil.handleSuccMessage(this, result2)) {
-			console.log('login offline successfully')
-			JsUtil.setAppItem("token", result2.body);
-		}
-		}
-		
-		const err2 = result2 => {
-			JsUtil.handleErrMessage(this, result2)
-		}
-		
-		JsUtil.asyncHttpPost(this, '/sec/login/offline?token=Bearer ' + entity.token, null, succ2, err2, cnst.REQUEST_TYPE_WWW);
-
 		this.setState({ path: "/" });
       } else {
         alert(result.message);
@@ -87,7 +75,7 @@ class Login extends React.Component {
       alert("operation fail: " + result);
     }
 
-    JsUtil.asyncHttpPost(this, "/sec/login?"+params, null, succ, err, "application/x-www-form-urlencoded");
+    JsUtil.asyncHttpPost(this, "/sec/login?"+params, params, succ, err, "application/x-www-form-urlencoded");
   }
 
   render() {

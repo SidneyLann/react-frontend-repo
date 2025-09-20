@@ -11,10 +11,7 @@ const webpackProdConfig = require('./src/config/webpack.prd.config.js');
 
 gulp.task('dev', () => {
 	const devServerOptions = {
-		host: 'd08.pc8g.com', port: 443, historyApiFallback: true, open: '/', https: {
-			key: fs.readFileSync('/home/dev/app/ssl/d08.pc8g.com.key'),
-			cert: fs.readFileSync('/home/dev/app/ssl/d08.pc8g.com_bundle.crt')
-		}
+		host: 'd08.pc8g.com', port: 8443, historyApiFallback: true, open: '/'
 	};
 	const compiler = webpack(webpackDevConfig);
 	const server = new WebpackDevServer(devServerOptions, compiler);

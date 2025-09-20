@@ -7,7 +7,7 @@ JsUtil.prod_mode = prod_mode;
 
 const devEnv = () => {
 	WEBSITE_SCHEM = 'http://';
-	WEBSITE_HOST = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
+	WEBSITE_HOST = 'd08.pc8g.com';
 	API_SCHEM = 'http://';
 	BE_PORT = 8443;
 	API_HOST_ONLINE = 'ec2-13-229-223-170.ap-southeast-1.compute.amazonaws.com';
@@ -105,7 +105,8 @@ const asyncHttpPost = (
 		body: param
 	}
 
-	fetch(JsUtil.getUri(uri), params)
+	uri = JsUtil.getUri(uri);
+	fetch(uri, params)
 		.then(function(response) {
 			if (!response.ok) {
 				throw response;
