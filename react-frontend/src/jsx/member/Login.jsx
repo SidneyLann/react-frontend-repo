@@ -62,9 +62,6 @@ class Login extends React.Component {
         JsUtil.setAppItem("authorities", entity.authorities);
         JsUtil.setAppItem("storeNames", entity.storeNames);
 
-        this.loadCommodityFollow(entity.id);
-        this.loadSupplierFollow(entity.id);
-
 		this.setState({ path: "/" });
       } else {
         alert(result.message);
